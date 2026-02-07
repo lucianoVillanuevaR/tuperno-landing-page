@@ -1,4 +1,4 @@
-# Tuperno – Landing Page (Portafolio)
+# Tuperno – Landing Page 
 
 ##  Descripción general
 
