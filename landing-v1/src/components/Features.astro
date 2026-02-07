@@ -1,0 +1,63 @@
+---
+interface Feature {
+	icon: string;
+	title: string;
+	description: string;
+}
+
+const features: Feature[] = [
+	{
+		icon: '✓',
+		title: 'Stock Completo',
+		description: 'Miles de productos disponibles. <strong>Pernos, tornillos y herramientas de todas las medidas</strong>. <strong>Medidas especiales</strong> bajo pedido. Siempre tenemos lo que necesitas.'
+	},
+	{
+		icon: '✓',
+		title: 'Atención Rápida',
+		description: '<strong>Respuesta inmediata por WhatsApp</strong>. Asesoría personalizada para encontrar exactamente lo que buscas. <strong>Servicio de primera</strong> con años de experiencia.'
+	},
+	{
+		icon: '✓',
+		title: 'Mejores Precios',
+		description: '<strong>Precios justos y competitivos</strong> para grandes proyectos. Calidad garantizada en todos nuestros productos.'
+	}
+];
+---
+
+<section class="bg-slate-50 py-16">
+	<div class="container mx-auto px-6 max-w-5xl">
+		<h2 class="text-2xl lg:text-3xl font-bold text-center text-primary mb-12 animate-on-scroll animate-fade-in-up">
+			¿Por qué elegir Tuperno?
+		</h2>
+		
+		<div class="grid md:grid-cols-3 gap-8">
+			{features.map((feature, index) => (
+				<div class={`text-center space-y-3 animate-on-scroll animate-fade-in-up animation-delay-${(index + 1) * 100} hover-lift bg-slate-50 p-6 rounded-2xl shadow-md`}>
+					<div class="w-16 h-16 bg-secondary-light rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-secondary hover-scale">
+						<span class="text-secondary text-3xl font-bold">{feature.icon}</span>
+					</div>
+					<h3 class="text-xl font-bold text-primary">{feature.title}</h3>
+					<p class="text-slate-700 text-sm leading-relaxed" set:html={feature.description} />
+				</div>
+			))}
+		</div>
+	</div>
+</section>
+
+<style>
+	.text-primary {
+		color: #B71C1C;
+	}
+
+	.text-secondary {
+		color: #FBC02D;
+	}
+
+	.border-secondary {
+		border-color: #FBC02D;
+	}
+
+	.bg-secondary-light {
+		background: rgba(251, 192, 45, 0.1);
+	}
+</style>

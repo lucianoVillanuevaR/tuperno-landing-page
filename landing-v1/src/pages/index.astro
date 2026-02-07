@@ -1,0 +1,23 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import ProductCarousel from '../components/ProductCarousel.astro';
+import Features from '../components/Features.astro';
+import ContactForm from '../components/ContactForm.astro';
+import Testimonials from '../components/Testimonials.astro';
+import CTAFooter from '../components/CTAFooter.astro';
+---
+
+<Layout>
+	<main class="min-h-screen bg-white">
+		<Hero>
+			<ProductCarousel />
+		</Hero>
+
+		<Features />
+
+		<ContactForm />
+		
+		<Testimonials />
+		
+		<CTAFooter />

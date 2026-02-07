@@ -1,0 +1,79 @@
+---
+import '../styles/global.css'
+import SocialBar from '../components/SocialBar.astro'
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+	<link rel="icon" type="image/png" sizes="32x32" href="/images/logo.png" />
+	<link rel="shortcut icon" type="image/png" href="/images/logo.png" />
+	<link rel="apple-touch-icon" href="/images/logo.png" />
+  <link rel="canonical"	href="https://www.ferreteriatuperno.cl/" />
+		
+		<title>Tuperno - Pernos y Fijaciones</title>
+		<meta name="description" content="Ferretería Tuperno en San Pedro de la Paz, Bío Bío. Encuentra pernos, tornillos, herramientas y materiales de construcción. Envíos rápidos y atención personalizada. ¡Visítanos!" />
+		<meta name="keywords" content="ferretería, pernos, tornillos, herramientas, San Pedro de la Paz, Bío Bío, ferretería cerca de mí, materiales construcción" />
+		<!-- <meta name="google-site-verification" content="" /> -->
+
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="Tuperno - Ferretería en San Pedro de la Paz" />
+		<meta property="og:description" content="Tu ferretería de confianza en San Pedro de la Paz, Bío Bío. Pernos, tornillos, herramientas y más." />
+		<meta property="og:locale" content="es_CL" />
+    <meta property="og:url" content="https://www.ferreteriatuperno.cl/" />
+		
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "HardwareStore",
+				"name": "Tuperno",
+				"description": "Ferretería en San Pedro de la Paz, Bío Bío",
+				"address": {
+					"@type": "PostalAddress",
+					"streetAddress": "Av. Pedro Aguirre Cerda, Pje. Noventa 1973",
+					"addressLocality": "San Pedro de la Paz",
+					"addressRegion": "Bío Bío",
+					"postalCode": "4130010",
+					"addressCountry": "CL"
+				},
+				"geo": {
+					"@type": "GeoCoordinates",
+					"latitude": "-36.82",
+					"longitude": "-73.09"
+				},
+				"priceRange": "$$",
+				"telephone": "+56951997763"
+			}
+		</script>
+	</head>
+	<body>
+		<SocialBar />
+		<slot />
+
+		<script>
+			// Intersection Observer para animaciones al hacer scroll
+			const observerOptions = {
+				threshold: 0.1,
+				rootMargin: '0px 0px -50px 0px'
+			};
+
+			const observer = new IntersectionObserver((entries) => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						const element = entry.target as HTMLElement;
+						element.style.opacity = '1';
+						observer.unobserve(entry.target);
+					}
+				});
+			}, observerOptions);
+
+			// Observar todos los elementos con la clase animate-on-scroll
+			document.addEventListener('DOMContentLoaded', () => {
+				const animatedElements = document.querySelectorAll('.animate-on-scroll');
+				animatedElements.forEach(el => observer.observe(el));
+			});
+		</script>
+	</body>
+</html>
